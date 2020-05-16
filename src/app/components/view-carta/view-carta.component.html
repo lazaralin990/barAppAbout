@@ -1,0 +1,100 @@
+<!-- Profile info and profile actions -->
+<div class="body">
+    <div class="header">
+      <div class="pic">
+         <img *ngIf="this.image" [src]="this.image" class="profile">
+      </div>
+      <div class="name">
+        <div class="user">
+            <p class="nameUser">{{name}}</p>
+        </div>
+        <div class="dir">
+            <p class="address">{{direccion}}</p>
+        </div>
+        <div class="icons">
+            <div class="dotsProfile">
+
+                <div class="iconDotsProfile">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon" class="dotsProfileIcon" routerLink="/home">arrow_back_ios</mat-icon>
+                </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="middle">
+        <div class="categoriesAll">
+      <li class="list-group-item categoryContainer" *ngFor="let cat of categoryList">
+        <div class="divCategory">
+
+          <div class="categoryTitleDiv">
+            <a class="categoryTitle">{{cat.category}}</a>
+          </div>
+      <mat-icon aria-hidden="false" aria-label="Example home icon" class="expand" *ngIf="!makeViewMore(cat)" (click)="selectViewMore(cat, cat.id)">expand_more</mat-icon>
+      <mat-icon aria-hidden="false" aria-label="Example home icon" class="expand" *ngIf="makeViewMore(cat)"  (click)="unselectViewMore(cat)">expand_less</mat-icon>
+        </div>
+
+
+    <!-- All Products  -->
+
+        <div class="collapsed" *ngIf="!makeViewMore(cat)">
+        </div>
+        <div class="expanded" *ngIf="makeViewMore(cat)">
+
+            <ng-container class="list-group-item" *ngFor="let prod of productListPerCat">
+              <ng-container *ngIf="prod.categoryId === cat.id">
+                <li class="list-group-item">
+                  <div class="divProducts">
+                      <div class="textPro">
+                                <a class="textProducts">{{prod.title}}</a>
+                                <div class="imageDiv" *ngIf="prod.image">
+                                    <mat-icon aria-hidden="false" aria-label="Example home icon" class="iconPic" (click)="openPicture(prod)">photo</mat-icon>
+                                </div>
+                                <div *ngIf="isPictureOpen" class="popUpImage">
+                                  <div class="shadow" (click)="closePicture()"></div>
+                                  <mat-icon aria-hidden="false" aria-label="Example home icon" class="clearPic" (click)="closePicture()">clear</mat-icon>
+                                  <div class="imageDiv">
+                                      <img class="image" [src]=pictureSelected.image>
+                                    </div>
+                                </div>
+                          <div class="textDescDiv">
+                          <p class="textDescription">{{prod.description}}</p>
+                          </div>
+                      </div>
+
+                      <div class="divPrice">
+                          <a class="textProductsPrice">{{prod.price}}€</a>
+                      </div>
+                  </div>
+                </li>
+            </ng-container>
+        </ng-container>
+        </div>
+
+
+          <!-- Text to display if there are no categories -->
+
+
+       </li>
+       <div class="textPrincipio" *ngIf="!categoryList || categoryList.length === 0">
+          <div class="principioHeader">
+            <p>¿List@ para empezar? en 2 min tendrás tu carta en la nube</p>
+          </div>
+          <div class="pasosPrincipio">
+            <p>Pasos: </p>
+            <mat-icon class="iconProduct steps" aria-hidden="false" aria-label="Example home icon">looks_one</mat-icon>
+            <p>Haz click arriba en "+ Nueva Categoria" para crear las categorías, por ejemplo: Bebidas, Entrantes, Postres o cualquier otra</p>
+            <mat-icon class="iconProduct steps" aria-hidden="false" aria-label="Example home icon">looks_two</mat-icon>
+            <p>Crea productos dentro de las categorías creadas.</p>
+            <mat-icon class="iconProduct steps" aria-hidden="false" aria-label="Example home icon">looks_3</mat-icon>
+
+            <p>Tu carta online está lista!</p>
+          </div>
+          <div class="principioFooter">
+            <p>Ten en cuenta que el cliente verá el menu de la misma forma que tú lo ves y en el mismo orden.
+            </p>
+          </div>
+      </div>
+
+   </div>
+  </div>
+  </div>

@@ -1,0 +1,61 @@
+<div class="body">
+
+    <div class="divForm">
+      <div>
+        <form [formGroup]="formTemplate">
+          <div class="title">
+              <button type="button" class="btn btn-info" (click)="navigateBack()">Volver</button>
+            <p id="titleQuestion">Mi establecimiento</p>
+
+            <div class="titulo">
+                <p>Nombre del establecimiento</p>
+                <input type="text" required class="titulo" formControlName="name">
+            </div>
+
+            <div class="titulo">
+                <p>Direccion</p>
+                <input type="text" required class="titulo" formControlName="direccion">
+            </div>
+            <div class="titulo">
+                <p>Telefono</p>
+                <input type="text" required class="titulo" formControlName="telefono">
+            </div>
+          </div>
+
+          <div class="cartel">
+              <p>Foto del establecimiento</p>
+                <img class="fotoEstablecimiento" *ngIf="imgSrc" [src]="imgSrc" width="150px" height="150px" margin-bottom="10px" (click)="fileUploader.click()">
+                <input type="file" aria-describedby="inputGroupFileAddon01" class="custom-file-input" formControlName="image" #fileUploader (change)="showPreview($event)">
+               <div class="input-group-prepend">
+                    <span class="input-group-text buttonCambiar" id="inputGroupFileAddon01" (click)="fileUploader.click()">Cambiar foto</span>
+                </div>
+              </div>
+
+            <input type="hidden" formControlName = "uid">
+
+
+            <input type="hidden"
+            formControlName = "email"
+            >
+
+            <input type="hidden"
+            formControlName = "emailVerified"
+            >
+
+            <div class="crear">
+              <button type="submit" [disabled]="!formTemplate.valid" class="btn btn-success btn-block guardarButton" (click)="onSubmitEdit(formTemplate.value)">Guardar Cambios</button>
+            </div>
+
+
+        </form>
+      </div>
+      <!--
+      <div class="deleteDiv">
+          <button class="btn btn-danger eliminar" (click)="onDelete()">Eliminar mi cuenta</button>
+      </div>
+      -->
+
+    </div>
+  </div>
+
+

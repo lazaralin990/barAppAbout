@@ -1,0 +1,302 @@
+.profile{
+  display: block;
+  width: 130px;
+  height: 130px;
+  border-radius: 10%;
+  margin-left: 5px;
+  margin-top: 5px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  float: left;
+}
+
+.name{
+  display: table;
+  min-height: 130px;
+}
+.nameUser{
+  float: left;
+  margin-left: 5px;
+  display: block;
+  line-height : 5px;
+  position: relative;
+}
+
+.user{
+display: block;
+min-width: 200px;
+max-width: 500px;
+width: 100%;
+margin-top: 50px;
+margin-left: 5px;
+}
+
+
+
+.dir{
+  display: block;
+  min-width: 200px;
+  max-width: 500px;
+  width: 100%;
+  margin-left: 5px;
+}
+
+.address{
+  display: block;
+  color: lightslategrey;
+  float: left;
+  margin-left: 5px;
+  line-height : 5px;
+  position: relative;
+}
+
+
+.iconProduct{
+  display: inline-table;
+  vertical-align: middle;
+  color: #46C646;
+}
+
+.textIconProduct{
+  display: inline-table;
+  vertical-align: middle;
+  color: lightslategrey;
+}
+
+
+.pic{
+  display: inline;
+}
+
+.header{
+  min-width: 330px;
+  width: 100%;
+  float: left;
+}
+
+
+.categoryContainer{
+  vertical-align: middle;
+}
+
+.divCategory{
+  width: 100%;
+  height: 40px;
+  vertical-align: middle;
+  display: inline-table;
+}
+.categoryTitleDiv{
+  height: 38px;
+  display: inline-table;
+  vertical-align: middle;
+}
+.categoryTitle{
+  margin-top: 7px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icondotsCategory{
+  display: inline-table;
+  height: 38px;
+  width: 10%;
+  float: left;
+  margin: auto;
+  padding: 0px;
+}
+
+.dotsCategory{
+  display: inline-table;
+  margin-left: 5px;
+  float: left;
+}
+
+.expand{
+  height: 38px;
+  color: lightslategrey;
+  display: inline-table;
+  float: right;
+  margin-right: 5px;
+  padding-top: 7px;
+}
+
+
+.createCat{
+  background-color: white;
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border-bottom:none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.0em;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  text-align:center;
+  transition: all 0.2s;
+  height: 45px;
+}
+
+.categoriesAll{
+  max-width: 600px;
+  width: 90%;
+  display: inline-block;
+}
+.middle{
+  margin-top: 25px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.collapsed{
+  height: 0px;
+  overflow: hidden;}
+
+.expanded{
+}
+
+
+
+
+.collapsedP{
+  height: 0px;
+  width: 0%;
+  overflow: hidden;
+}
+
+.expandedP{
+  min-width: 300px;
+  min-height: 100px;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0.3;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: fixed;
+  padding:0;
+  margin:0;
+  top:0;
+  left:0;
+}
+
+
+.divProducts{
+width: 100%;
+min-height: 40px;
+margin: 0px;
+text-align: left;
+/* vertical-align: middle; */
+}
+
+.textPro{
+  margin-top: 5px;
+  padding-left: 10px;
+  width: 80%;
+  float: left;
+}
+
+.imageDiv{
+  display: inline-table;
+  margin-top: 5px;
+  padding-left: 5px;
+}
+
+.divPrice{
+  margin-top: 5px;
+  width: 10%;
+  float: right;
+}
+
+.textProducts{
+  font-size: 15px;
+  line-height: 0%;
+  vertical-align: middle;
+}
+
+.textProductsPrice{
+  font-size: 15px;
+  line-height: 0%;
+  vertical-align: middle;
+  text-align: right;
+  align-self: right;
+}
+
+.textDescription{
+  font-size: 13px;
+  line-height: 0%;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+
+  .steps{
+    color: #2FB82E;
+  }
+
+  .principioHeader{
+    margin-top: 15px;
+  }
+
+  .iconPic{
+    font-size: 18px;
+    color: #1ECD1C;
+    cursor: pointer;
+  }
+
+.icons{
+  padding-left: 15px;
+  width: 100%;
+  display: block;
+  float: left;
+}
+.dotsProfileIcon{
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 24px;
+  color: #1CA7CD;
+}
+
+.shadow{
+  min-width: 300px;
+  min-height: 100px;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0.3;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: fixed;
+  padding:0;
+  margin:0;
+  top:0;
+  left:0;
+}
+.image{
+  min-width: 320px;
+  max-width: 600px;
+  min-height: 100px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  background-color: white;
+  z-index: 4;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+.clearPic{
+  float: right;
+  margin-top: 15px;
+  margin-right: 15px;
+  color: beige;
+  z-index: 4;
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}

@@ -1,0 +1,454 @@
+.profile{
+  display: block;
+  width: 130px;
+  height: 130px;
+  border-radius: 10%;
+  margin-left: 5px;
+  margin-top: 5px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  float: left;
+}
+
+.name{
+  display: table;
+}
+.nameUser{
+  float: left;
+  margin-left: 5px;
+  display: block;
+  line-height : 5px;
+  position: relative;
+}
+
+.user{
+display: block;
+min-width: 200px;
+max-width: 500px;
+width: 100%;
+margin-top: 50px;
+margin-left: 5px;
+}
+
+.iconDotsProfile{
+  float: left;
+}
+
+.dir{
+  display: block;
+  min-width: 200px;
+  max-width: 500px;
+  width: 100%;
+  margin-left: 5px;
+}
+
+.address{
+  display: block;
+  color: lightslategrey;
+  float: left;
+  margin-left: 5px;
+  line-height : 5px;
+  position: relative;
+}
+
+.icons{
+  float: left;
+}
+
+.addIconProduct{
+  margin-top: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.iconProduct{
+  display: inline-table;
+  vertical-align: middle;
+  color: #46C646;
+}
+
+.textIconProduct{
+  display: inline-table;
+  vertical-align: middle;
+  color: lightslategrey;
+}
+
+
+.editing{
+}
+
+.pic{
+  display: inline;
+}
+
+.header{
+  min-width: 330px;
+  width: 100%;
+  float: left;
+}
+
+.create{
+  width: 100%;
+  float: left;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.add{
+  color: #46C646;
+  font-size: 30px;
+  display: inline-table;  vertical-align: middle;
+}
+.textNueva{
+  font-size: 16px;
+  color: black;
+
+font-size: 15px;
+  display: inline-table;  vertical-align: middle;
+}
+
+.crearButton{
+  color: black;
+  font-size: 15px;
+  display: inline-table;  vertical-align: middle;
+}
+
+
+
+.categoryContainer{
+  vertical-align: middle;
+}
+
+.divCategory{
+  width: 100%;
+  height: 40px;
+  vertical-align: middle;
+  display: inline-table;
+}
+.categoryTitleDiv{
+  height: 38px;
+  display: inline-table;
+  vertical-align: middle;
+}
+.categoryTitle{
+  margin-top: 7px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icondotsCategory{
+  display: inline-table;
+  height: 38px;
+  width: 10%;
+  float: left;
+  margin: auto;
+  padding: 0px;
+}
+
+.dotsCategory{
+  display: inline-table;
+  margin-left: 5px;
+  float: left;
+}
+
+.expand{
+  height: 38px;
+  color: lightslategrey;
+  display: inline-table;
+  float: right;
+  margin-right: 5px;
+  padding-top: 7px;
+}
+
+
+.createCat{
+  background-color: white;
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border-bottom:none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.0em;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  text-align:center;
+  transition: all 0.2s;
+  height: 45px;
+}
+
+.categoriesAll{
+  max-width: 600px;
+  width: 90%;
+  display: inline-block;
+}
+.middle{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.collapsed{
+  height: 0px;
+  overflow: hidden;}
+
+.expanded{
+}
+
+
+
+
+.collapsedP{
+  height: 0px;
+  width: 0%;
+  overflow: hidden;
+}
+
+.expandedP{
+  min-width: 300px;
+  min-height: 100px;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0.3;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: fixed;
+  padding:0;
+  margin:0;
+  top:0;
+  left:0;
+}
+
+
+.fieldProducts{
+  padding: 0px;
+  border-bottom-color: white;
+}
+
+.divProducts{
+width: 100%;
+margin: 0px;
+text-align: left;
+float: left;
+/* vertical-align: middle; */
+}
+
+.textPro{
+  margin-top: 5px;
+  padding-left: 10px;
+  width: 80%;
+  float: left;
+}
+
+.icondots{
+  padding-top: 0px;
+  width: 50px;
+  float: right;
+  text-align: right;
+}
+
+
+.textProducts{
+  font-size: 15px;
+  line-height: 0%;
+  vertical-align: middle;
+}
+
+.textProductsPrice{
+  font-size: 15px;
+  line-height: 0%;
+}
+
+.textDescription{
+  font-size: 13px;
+  line-height: 0%;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+
+.dots{
+  float: right;
+}
+
+.dotsProfileIcon{
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 30px;
+}
+
+
+
+  .popUpBody{
+    min-width: 300px;
+    min-height: 100px;
+    background-color: rgba(0, 0, 0, 0.5);;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    position: absolute;
+  }
+
+  .shadow{
+    min-width: 300px;
+    min-height: 100px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: absolute;
+  }
+
+  .popUpBodyProduct{
+    min-width: 300px;
+    min-height: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0.3;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+  }
+
+  .shadowProduct{
+    min-width: 300px;
+    min-height: 100px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+  }
+
+
+
+
+  .box {
+    min-width: 300px;
+    min-height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background-color: white;
+    z-index: 1;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
+  }
+
+
+  .boxProduct {
+    border-radius: 1%;
+    min-width: 300px;
+    min-height: 100px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background-color: white;
+    z-index: 4;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
+  }
+
+  .salir{
+    color: lightslategray;
+    float: right
+  }
+
+  .newCategory{
+    vertical-align: middle;
+    justify-content: center;
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    height: 90%;
+  }
+
+.formPopUp{
+  margin-top: 30px;
+  display: inline-block;
+}
+
+  .buttonPopUp{
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+
+    header {
+      position: absolute;
+      display: inline-block;
+      left: 0;
+      right: 0;
+      top: -.65em;
+
+    }
+    footer {
+      padding-top: 2ch;
+    }
+
+  .optionsDiv{
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .option{
+    display: block;
+  }
+
+  .steps{
+    color: #2FB82E;
+  }
+
+  .principioHeader{
+    margin-top: 15px;
+  }
+
+  .collapsedPopUp{
+    width: 0px;
+    height: 0px;
+  }
+  .iconAnadir{
+    cursor: pointer;
+  }
+  .textNuevoProducto{
+    cursor: pointer;
+  }
+
+  .buttonUploadPicture{
+    margin-top: 5px;
+    cursor: pointer;
+  }
+
+  .divPicProduct{
+    margin-top: 5px;
+    width: 100%;
+    float: left;
+  }
+  .picProduct{
+    float: left;
+  }
+  .removePic{
+    float: left;
+    size: 30px;
+    cursor: pointer;
+  }
+
+

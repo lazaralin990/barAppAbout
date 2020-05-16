@@ -1,0 +1,23 @@
+<div class="full">
+    <li routerLinkActive="active" class="nav-item estLi">
+        <p class="text-muted text-right establecimiento" routerLink="/login">Soy un establecimiento</p>
+    </li>
+  <div class="body">
+    <div class="search">
+      <input type="text" placeholder="Escribe el nombre del bar..." class="form-control box" [(ngModel)]="searchTerm"/>
+      <div>
+          <ul *ngIf="this.show" class="list-group">
+            <li class="list-group-item results" *ngFor="let user of filteredList">
+            <div class="name" (click)="viewCarta(user.uid)">
+              <div class="image">
+                  <img [src]="user.image" class="profile">
+
+                  <a class="nameUser">{{user.name}}</a> <a class="address">{{user.direccion}}</a>
+              </div>
+            </div>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</div>

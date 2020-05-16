@@ -1,0 +1,42 @@
+<body>
+    <div class="limiter">
+        <div class="back">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" class="backHome" routerLink="/login">arrow_back</mat-icon>
+        </div>
+      <div class="container-login">
+        <div class ="title">
+          <p class="body-text">Crea tu cuenta</p>
+        </div>
+        <div class="wrap-login">
+          <form [formGroup]="userSignUp" (ngSubmit)="onSubmit(userSignUp.value)">
+           <div class="form">
+              <div class="email">
+                <p>Correo electronico</p>
+                <input type="email" required id="email" label="email" class="form-control" formControlName='email'>
+                <div class="text-danger" *ngIf="isSubmitted && formsControls.email.errors?.required">Este campo es obligatorio</div>
+              </div>
+            </div>
+            <div class="form">
+              <div class="password">
+                <p>Contraseña</p>
+                <input type="password" required id="password" label="password" formControlName='password'>
+                <div class="text-danger" *ngIf="isSubmitted && formsControls.email.errors?.required">Este campo es obligatorio</div>
+              </div>
+            </div>
+            <div class="terms">
+              <input type="checkbox" required formControlName="cb" id="cb">
+              <a id="terminos" mat-raised-button (click)="openDialog()">Acepto los terminos y las condiciones</a>
+             <div class="text-danger" *ngIf="isSubmitted && formsControls.email.errors?.required">Es necesario que acepte los Terminos y Condiciones</div>
+
+            </div>
+            <div class="submit">
+              <button type="submit" class="btn btn-success">Registrarme</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="container-pic">
+
+      </div>
+    </div>
+  </body>

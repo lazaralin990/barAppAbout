@@ -1,0 +1,185 @@
+<!-- Profile info and profile actions -->
+<div class="body">
+  <div class="header">
+    <div class="pic">
+       <img *ngIf="this.image" [src]="this.image" class="profile">
+    </div>
+    <div class="name">
+      <div class="user">
+          <p class="nameUser">{{name}}</p>
+      </div>
+      <div class="dir">
+          <p class="address">{{direccion}}</p>
+      </div>
+
+        <div class="icons">
+            <div class="dotsProfile">
+
+                <div class="iconDotsProfile">
+                    <div ngbDropdown class="d-inline-block">
+                        <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                 <mat-icon aria-hidden="false" aria-label="Example home icon" class="dotsProfileIcon">more_vert</mat-icon>
+                        </button>
+                        <div class="dropdown-menu optionsDiv" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item option" (click)="editButtonClick(this.authService.userId)">Editar mi cuenta</a>
+                          <a class="dropdown-item option" (click)="onSignOut()">Desconectarme</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+  <!-- New Category  -->
+ <form [formGroup] = "formCat">
+    <div class="create">
+      <button class="btn btn-light createCat" (click)="openPopUp()">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" class="add">add_circle</mat-icon>
+        <a class="textNueva">Nueva categoría</a>
+        </button>
+    </div>
+<!-- Pop-up for Add and Edit Category  -->
+
+   <div class="popUpBody" *ngIf="this.popUpOpen">
+        <div class="shadow" (click)="cancelOption()">
+        </div>
+        <div class="box">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" class="salir" (click)="cancelOption()">clear</mat-icon>
+            <div class="newCategory">
+              <input type="text" required class="form-control formPopUp" formControlName="category" placeholder="Nueva categoría (*)">
+              <input type="button" *ngIf="!editingCat" [disabled]="!formCat.valid" class="btn btn-success buttonPopUp" value="Guardar" (click)="onSubmitCat(formCat.value)">
+              <input type="button" *ngIf="editingCat" [disabled]="!formCat.valid" class="btn btn-success buttonPopUp" value="Guardar1" (click)="onSubmitEditCat(formCat.value)">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</form>
+
+
+  <div class="middle">
+  <!-- All Categories  -->
+
+      <div class="categoriesAll">
+    <li class="list-group-item categoryContainer" *ngFor="let cat of categoryList">
+      <div class="divCategory">
+        <div class="icondotsCategory">
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" class="dotsCategory">more_vert</mat-icon>
+                  </button>
+                <div class="dropdown-menu optionsDiv" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" (click)="onEditCat(cat.id)">Editar</a>
+                  <a class="dropdown-item" (click)="onDeleteCat(cat.id)">Eliminar</a>
+                </div>
+              </div>
+        </div>
+        <div class="categoryTitleDiv">
+          <a class="categoryTitle">{{cat.category}}</a>
+        </div>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" class="expand" *ngIf="!makeViewMore(cat)" (click)="selectViewMore(cat, cat.id)">expand_more</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" class="expand" *ngIf="makeViewMore(cat)"  (click)="unselectViewMore(cat)">expand_less</mat-icon>
+      </div>
+
+
+  <!-- All Products  -->
+
+     <!-- <div [ngClass]="{'collapsed':!makeViewMore(cat.key), 'expanded':makeViewMore(cat.key)}">  -->
+      <div class="collapsed" *ngIf="!makeViewMore(cat)">
+      </div>
+      <div class="expanded" *ngIf="makeViewMore(cat)">
+
+          <ng-container class="list-group-item" *ngFor="let prod of productListPerCat">
+            <ng-container *ngIf="prod.categoryId === cat.id">
+              <li class="list-group-item fieldProducts">
+                <div class="divProducts">
+                    <div class="textPro">
+                              <a class="textProducts">{{prod.title}}</a> <a>&nbsp;</a> <a class="textProductsPrice">{{prod.price}}€</a>
+                        <div class="textDescDiv">
+                        <p class="textDescription">{{prod.description}}</p>
+                        </div>
+                    </div>
+                    <div class="icondots">
+                        <div ngbDropdown class="d-inline-block">
+                            <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  <mat-icon aria-hidden="false" aria-label="Example home icon" class="dots">more_vert</mat-icon></button>
+                            <div class="dropdown-menu optionsDiv" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" (click)="onEditProduct(prod.id, cat.id, cat)">Editar</a>
+                              <a class="dropdown-item" (click)="onDeleteProduct(cat.id, prod.id)">Eliminar</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+              </li>
+          </ng-container>
+      </ng-container>
+
+        <!-- Add Product button and pop-up for Add Product -->
+
+        <div class="addIconProduct" (click)="openPopUpAddProduct(cat)">
+          <mat-icon class="iconProduct iconAnadir" aria-hidden="false" aria-label="Example home icon">add_circle_outline</mat-icon>
+        <a class="textNuevoProducto">Añade {{cat.category}}</a>
+        </div>
+        <div [ngClass]="{'collapsedP':!makeProductMore(cat), 'expandedP':makeProductMore(cat)}" (click)="unselectProductMore(cat)">
+        </div>
+          <div [ngClass]="{'collapsedP':!makeProductMore(cat), 'boxProduct':makeProductMore(cat)}">
+              <form [formGroup]="formProduct">
+              <mat-icon aria-hidden="false" aria-label="Example home icon" class="salir" (click)="unselectProductMore(cat)">clear</mat-icon>
+              <div class="newCategory">
+                    <input type="hidden" formControlName="category">
+                    <input type="text"  required class="form-control formPopUp" formControlName="title" id="title" placeholder="Nombre (*)">
+                    <div class="text-danger" *ngIf="isSubmitted && formsControls.title.errors?.required">Este campo es obligatorio</div>
+
+                    <input type="text" class="form-control formPopUp" formControlName="description" placeholder="Descripción (opcional)">
+                    <input type="number" required class="form-control formPopUp" formControlName="price" placeholder="Precio (*)">
+                    <div class="text-danger" *ngIf="isSubmitted && formsControls.price.errors?.required">Este campo es obligatorio</div>
+                    <div class="divPicProduct">
+                          <img class="picProduct" [hidden]="!uploadedPic" *ngIf="imgSrc" [src]="imgSrc" width="50px" height="50px" margin-bottom="10px" (click)="fileUploader.click()">
+                          <mat-icon [hidden]="!uploadedPic" aria-hidden="false" aria-label="Example home icon" class="removePic" (click)="removePic()">clear</mat-icon>
+                          <input type="file" [hidden]="true" aria-describedby="inputGroupFileAddon01" class="custom-file-input" formControlName="image" #fileUploader (change)="showPreview($event)">
+                         <div class="input-group-prepend">
+                              <span class="input-group-text buttonUploadPicture" id="inputGroupFileAddon01" (click)="fileUploader.click()">Añadir foto (opcional)</span>
+                          </div>
+                    </div>
+                    <input type="button" *ngIf="!editingProd" class="btn btn-success buttonPopUp" value="Guardar" (click)="onSubmit(formProduct.value, cat.id, cat.category)">
+                    <input type="button" *ngIf="editingProd" class="btn btn-success buttonPopUp" value="Guardar1" (click)="onSubmitEditProduct(formProduct.value, cat.id)">
+              </div>
+              </form>
+          </div>
+
+
+      </div>
+
+
+        <!-- Text to display if there are no categories -->
+
+
+     </li>
+     <div class="textPrincipio" *ngIf="!categoryList || categoryList.length === 0">
+        <div class="principioHeader">
+          <p>¿List@ para empezar? en 2 min tendrás tu carta en la nube</p>
+        </div>
+        <div class="pasosPrincipio">
+          <p>Pasos: </p>
+          <mat-icon class="iconProduct steps" aria-hidden="false" aria-label="Example home icon">looks_one</mat-icon>
+          <p>Haz click arriba en "+ Nueva Categoria" para crear las categorías, por ejemplo: Bebidas, Entrantes, Postres o cualquier otra</p>
+          <mat-icon class="iconProduct steps" aria-hidden="false" aria-label="Example home icon">looks_two</mat-icon>
+          <p>Crea productos dentro de las categorías creadas.</p>
+          <mat-icon class="iconProduct steps" aria-hidden="false" aria-label="Example home icon">looks_3</mat-icon>
+
+          <p>Tu carta online está lista!</p>
+        </div>
+        <div class="principioFooter">
+          <p>Ten en cuenta que el cliente verá el menu de la misma forma que tú lo ves y en el mismo orden.
+          </p>
+        </div>
+    </div>
+
+ </div>
+</div>
+</div>

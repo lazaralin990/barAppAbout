@@ -1,0 +1,69 @@
+<div class="body">
+  <div class="divForm">
+    <div>
+      <form [formGroup]="formTemplate">
+        <div class="title">
+          <p id="titleQuestion">Antes de empezar, cuentanos un poco sobre tu establecimiento</p>
+
+          <div class="titulo">
+              <p>Nombre del establecimiento</p>
+              <input type="text" required class="form-control titulo" formControlName="name">
+              <div class="text-danger" *ngIf="isSubmitted && formsControls.name.errors?.required">Este campo es obligatorio</div>
+          </div>
+
+          <div class="titulo">
+              <p>Direccion</p>
+              <input type="text" required class="form-control titulo" formControlName="direccion">
+              <div class="text-danger" *ngIf="isSubmitted && formsControls.direccion.errors?.required">Este campo es obligatorio</div>
+          </div>
+          <div class="titulo">
+              <p>Telefono</p>
+              <input type="text" required class="form-control titulo" formControlName="telefono">
+              <div class="text-danger" *ngIf="isSubmitted && formsControls.telefono.errors?.required">Este campo es obligatorio</div>
+          </div>
+        </div>
+
+        <div class="cartel">
+            <p>Sube una foto de tu local para que tus clientes lo reconozcan facilmente</p>
+              <img [src]="imgSrc" width="150px" height="150px" margin-bottom="10px" (click)="fileUploader.click()"  >  <!--  it used to have: (click)="fileUploader.click()" -->
+              <input type="file" required class="form-control" formControlName="image" #fileUploader (change)="showPreview($event)"> <!-- it used to have #fileUploader -->
+              <div class="text-danger" *ngIf="isSubmitted && !uploadedPic">Este campo es obligatorio</div>
+
+        </div>
+
+          <input type="hidden"
+                  id="profileId"
+                  value = "authService.userData.uid"
+                  [formControl]="formTemplate.controls['uid']"
+          >
+
+
+          <input type="hidden"
+          id="email"
+          [formControl]="formTemplate.controls['email']"
+          >
+
+          <input type="hidden"
+          id="emailVerified"
+          [formControl]="formTemplate.controls['emailVerified']"
+          >
+
+          <div class="crear">
+            <button type="submit" class="btn btn-success btn-block float-right" (click)="onSubmit(formTemplate.value)">Listo!</button>
+          </div>
+
+
+      </form>
+    </div>
+    <!--
+    <div class="deleteDiv">
+        <button class="btn btn-danger eliminar" (click)="onDelete()">Eliminar mi cuenta</button>
+    </div>
+    -->
+    <div class="footer">
+      <p (click)="authService.SignOut()" class="signout">Desconectarse</p>
+    </div>
+  </div>
+</div>
+
+
